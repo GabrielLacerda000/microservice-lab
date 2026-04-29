@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MessagingModule } from './infrastructure/messaging/messaging.module';
 import { UsersModule } from './users/users.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { BillingModule } from './billing/billing.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { NotificationsModule } from './notifications/notifications.module';
     MessagingModule,
     UsersModule,
     NotificationsModule,
+    BillingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
