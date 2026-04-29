@@ -90,17 +90,9 @@ Comunicação entre módulos ocorre SOMENTE via eventos.
 
 ---
 
-## Regra 2 — Banco por Serviço
+## Regra 2 — Schema por Serviço
 
-Cada módulo possui seu próprio banco SQLite.
-
-Exemplos:
-
-* users.sqlite
-* billing.sqlite
-* payments.sqlite
-
-Nenhum módulo pode acessar o banco de outro.
+Cada módulo possui seu próprio schema na pasta databse de seu proprio modulo.
 
 ---
 
@@ -199,7 +191,7 @@ Responsável por gerenciar usuários.
 
 Entidade:
 
-* User(id, email, createdAt)
+* User(id, email, name,createdAt)
 
 Publica:
 
