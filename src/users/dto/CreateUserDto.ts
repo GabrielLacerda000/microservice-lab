@@ -1,7 +1,9 @@
 import { IsEmail, IsString, MinLength } from 'class-validator';
+import { IsEmailUnique } from '../validators/is-email-unique.constraint';
 
 export class CreateUserDto {
   @IsEmail()
+  @IsEmailUnique()
   readonly email: string;
 
   @IsString()
