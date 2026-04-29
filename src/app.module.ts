@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { MessagingModule } from './infrastructure/messaging/messaging.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { MessagingModule } from './infrastructure/messaging/messaging.module';
       isGlobal: true,
     }),
     MessagingModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
