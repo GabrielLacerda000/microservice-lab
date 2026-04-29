@@ -94,6 +94,8 @@ Comunicação entre módulos ocorre SOMENTE via eventos.
 
 Cada módulo possui seu próprio schema na pasta databse de seu proprio modulo.
 
+cada modulo so acessa sua propria tabela, para itneragir com outras tabelas será por meio de eventos
+
 ---
 
 ## Regra 3 — Comunicação Assíncrona
