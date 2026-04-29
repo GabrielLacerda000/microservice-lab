@@ -17,20 +17,22 @@ export async function createEventConsumer(
     await channel.bindQueue(q.queue, 'domain.events', key);
   }
 
-  await channel.consume(q.queue, async (msg) => {
+  await channel.consume(q.queue, (msg) => {
     if (!msg) return;
 
-    try {
-      const data = JSON.parse(msg.content.toString());
+    void (async () => {
+      try {
+        const data = JSON.parse(msg.content.toString());
 
-      console.log(`📥 Event received → ${msg.fields.routingKey}`);
+        console.log(`📥 Event received → ${msg.fields.routingKey}`);
 
-      await handler(data);
+        await handler(data);
 
-      channel.ack(msg);
-    } catch (err) {
-      console.error('❌ Error processing event', err);
-      channel.nack(msg); // volta pra fila
-    }
+        channel.ack(msg);
+      } catch (err) {
+        console.error('❌ Error processing event', err);
+        channel.nack(msg, false, true);
+      }
+    })();
   });
 }

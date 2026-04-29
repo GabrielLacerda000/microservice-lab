@@ -1,11 +1,13 @@
-import amqp, { Channel, Connection } from 'amqplib';
+import amqp, { Channel, ChannelModel } from 'amqplib';
 
 let channel: Channel;
 
 export async function getRabbitChannel(): Promise<Channel> {
   if (channel) return channel;
 
-  const connection: Connection = await amqp.connect(process.env.RABBITMQ_URL!);
+  const connection: ChannelModel = await amqp.connect(
+    process.env.RABBITMQ_URL!,
+  );
 
   channel = await connection.createChannel();
 

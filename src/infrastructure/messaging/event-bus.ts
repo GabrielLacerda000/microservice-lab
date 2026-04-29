@@ -4,7 +4,7 @@ import { getRabbitChannel } from './rabbit.connection';
 @Injectable()
 export class EventBus {
   async publish(eventName: string, payload: any) {
-    const channel: Channel = await getRabbitChannel();
+    const channel = await getRabbitChannel();
 
     channel.publish(
       'domain.events', // exchange
