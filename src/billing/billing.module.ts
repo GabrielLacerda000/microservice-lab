@@ -6,6 +6,10 @@ import { InvoicePaymentFailedConsumer } from './consumers/invoice-payment-failed
 
 @Module({
   controllers: [BillingController],
-  providers: [BillingService, InvoicePaidConsumer, InvoicePaymentFailedConsumer],
+  providers: [
+    BillingService,
+    InvoicePaidConsumer,
+    InvoicePaymentFailedConsumer,
+  ],
 })
 export class BillingModule {}
